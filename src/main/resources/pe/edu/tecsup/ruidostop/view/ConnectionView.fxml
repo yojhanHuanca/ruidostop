@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="18" styleClass="page" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.tecsup.ruidostop.controller.ConnectionController">
+    <padding><Insets bottom="26" left="28" right="28" top="26" /></padding>
+    <VBox spacing="4">
+        <Label text="Conexion Bluetooth" styleClass="page-title" />
+        <Label text="El HC-05 se empareja en Windows y la app lo lee como puerto COM." styleClass="page-subtitle" />
+    </VBox>
+
+    <GridPane hgap="16" vgap="16">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="58" />
+            <ColumnConstraints percentWidth="42" />
+        </columnConstraints>
+        <VBox spacing="16" styleClass="main-card" GridPane.columnIndex="0">
+            <Label text="Seleccion de puerto" styleClass="section-title" />
+            <Label wrapText="true" text="Primero empareja HC-05 desde Bluetooth de Windows. Despues presiona Actualizar puertos. Si todo esta bien, aparecera algo como COM5 o COM6." styleClass="helper-text" />
+            <HBox spacing="12">
+                <ComboBox fx:id="portCombo" prefWidth="420" promptText="Seleccione COM del HC-05" />
+                <Button onAction="#refreshPorts" text="Actualizar puertos" styleClass="secondary-button" />
+            </HBox>
+            <HBox spacing="12">
+                <Button onAction="#connectBluetooth" text="Conectar HC-05" styleClass="primary-button" />
+                <Button onAction="#startSimulation" text="Probar con simulacion" styleClass="secondary-button" />
+                <Button onAction="#disconnect" text="Desconectar" styleClass="danger-button" />
+            </HBox>
+            <Label fx:id="helpLabel" wrapText="true" styleClass="helper-text" />
+            <Label fx:id="statusLabel" text="Sin conexion activa" styleClass="status-label" />
+        </VBox>
+
+        <VBox spacing="12" styleClass="main-card" GridPane.columnIndex="1">
+            <Label text="Lectura correcta" styleClass="section-title" />
+            <Label wrapText="true" text="No tienes que prender Bluetooth del celular. El flujo real es Arduino Nano + HC-05 hacia la laptop." styleClass="helper-text" />
+            <VBox spacing="8" styleClass="info-strip">
+                <Label text="Ejemplo esperado" styleClass="metric-label" />
+                <Label text="COM5 - Standard Serial over Bluetooth link" wrapText="true" styleClass="status-label" />
+            </VBox>
+            <VBox spacing="8" styleClass="warning-card">
+                <Label text="Si aparecen dos COM" styleClass="section-title" />
+                <Label wrapText="true" text="Prueba uno. Si no recibe datos, desconecta y prueba el otro. Windows a veces crea un puerto entrante y otro saliente." styleClass="helper-text" />
+            </VBox>
+        </VBox>
+    </GridPane>
+
+    <VBox spacing="10" styleClass="main-card">
+        <Label text="Flujo fisico del prototipo" styleClass="section-title" />
+        <Label text="Sensor KY-038 → Arduino Nano → LEDs/Buzzer → HC-05 → Bluetooth de laptop → Puerto COM → App Java" styleClass="flow-text" />
+        <Label wrapText="true" text="Para la demo real, el Arduino debe enviar una linea por lectura. Ejemplos validos: 850, ROJO,850, AMARILLO,520 o VERDE,250. La app interpreta el valor y actualiza graficos, historial y base SQLite." styleClass="helper-text" />
+    </VBox>
+</VBox>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="18" styleClass="page" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.tecsup.ruidostop.controller.SettingsController">
+    <padding><Insets bottom="26" left="28" right="28" top="26" /></padding>
+    <VBox spacing="4">
+        <Label text="Configuracion" styleClass="page-title" />
+        <Label text="Ajusta los umbrales para que el sistema clasifique el ruido segun el aula real." styleClass="page-subtitle" />
+    </VBox>
+    <VBox spacing="18" styleClass="main-card">
+        <Label text="Umbrales de clasificacion" styleClass="section-title" />
+        <VBox spacing="8">
+            <HBox spacing="12">
+                <Label text="Amarillo desde" minWidth="150" />
+                <Slider fx:id="mediumSlider" blockIncrement="1" majorTickUnit="10" max="100" min="0" showTickLabels="true" showTickMarks="true" HBox.hgrow="ALWAYS" />
+                <Label fx:id="mediumLabel" minWidth="55" styleClass="metric-value-small" />
+            </HBox>
+            <HBox spacing="12">
+                <Label text="Rojo desde" minWidth="150" />
+                <Slider fx:id="highSlider" blockIncrement="1" majorTickUnit="10" max="100" min="0" showTickLabels="true" showTickMarks="true" HBox.hgrow="ALWAYS" />
+                <Label fx:id="highLabel" minWidth="55" styleClass="metric-value-small" />
+            </HBox>
+        </VBox>
+        <HBox spacing="12">
+            <Label text="Valor maximo del sensor" minWidth="190" />
+            <Spinner fx:id="sensorMaxSpinner" prefWidth="140" />
+            <Label text="KY-038 con Arduino Nano suele leerse entre 0 y 1023." styleClass="helper-text" />
+        </HBox>
+        <Button onAction="#saveSettings" text="Guardar configuracion" styleClass="primary-button" />
+        <Label fx:id="savedLabel" text="Configuracion lista para usar." styleClass="status-label" />
+    </VBox>
+    <VBox spacing="10" styleClass="main-card">
+        <Label text="Base de datos local" styleClass="section-title" />
+        <Label text="SQLite guarda automaticamente cada lectura recibida. Al cerrar y abrir la app, el historial se recupera desde una base de datos local del sistema." styleClass="helper-text" wrapText="true" />
+        <Label text="Base activa: ruido_stop.db" wrapText="true" styleClass="status-label" />
+    </VBox>
+    <VBox spacing="10" styleClass="main-card">
+        <Label text="Formato recomendado desde Arduino" styleClass="section-title" />
+        <Label text="Serial Bluetooth: 9600 baudios" styleClass="flow-text" />
+        <Label wrapText="true" text="Enviar una linea por lectura: VERDE,250 | AMARILLO,520 | ROJO,850. Tambien acepta solo el numero, por ejemplo 850, y la app calcula el estado con los umbrales configurados." styleClass="helper-text" />
+    </VBox>
+</VBox>
+
+
+

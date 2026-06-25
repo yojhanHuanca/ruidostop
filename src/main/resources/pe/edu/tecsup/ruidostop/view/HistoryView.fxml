@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16" styleClass="page" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.tecsup.ruidostop.controller.HistoryController">
+    <padding><Insets bottom="26" left="28" right="28" top="26" /></padding>
+    <VBox spacing="4">
+        <Label text="Historial y graficos" styleClass="page-title" />
+        <Label text="Registro de lecturas recibidas desde el HC-05 o desde simulacion." styleClass="page-subtitle" />
+    </VBox>
+    <HBox spacing="12">
+        <Label fx:id="summaryLabel" text="Lecturas: 0" styleClass="status-label" HBox.hgrow="ALWAYS" />
+        <Button onAction="#clearHistory" text="Limpiar historial" styleClass="danger-button" />
+    </HBox>
+    <GridPane hgap="16" vgap="16" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="58" />
+            <ColumnConstraints percentWidth="42" />
+        </columnConstraints>
+        <VBox spacing="10" styleClass="main-card" GridPane.columnIndex="0">
+            <Label text="Tendencia de ruido" styleClass="section-title" />
+            <LineChart fx:id="trendChart" animated="false" createSymbols="false" prefHeight="250">
+                <xAxis><NumberAxis label="Lecturas" /></xAxis>
+                <yAxis><NumberAxis label="Porcentaje" /></yAxis>
+            </LineChart>
+            <TableView fx:id="readingTable" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="timeColumn" prefWidth="120" text="Hora" />
+                    <TableColumn fx:id="rawColumn" prefWidth="120" text="Valor" />
+                    <TableColumn fx:id="percentColumn" prefWidth="120" text="Porcentaje" />
+                    <TableColumn fx:id="levelColumn" prefWidth="160" text="Estado" />
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="10" styleClass="main-card" GridPane.columnIndex="1">
+            <Label text="Distribucion de estados" styleClass="section-title" />
+            <PieChart fx:id="distributionChart" labelsVisible="true" prefHeight="360" />
+            <Label wrapText="true" styleClass="helper-text" text="Este grafico sirve para explicar si el aula se mantuvo mayormente en verde, si estuvo en precaucion o si tuvo muchos momentos de ruido excesivo." />
+        </VBox>
+    </GridPane>
+</VBox>
+

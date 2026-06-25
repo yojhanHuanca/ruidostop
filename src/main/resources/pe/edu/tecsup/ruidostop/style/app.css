@@ -1,0 +1,108 @@
+.root {
+    -fx-font-family: "Segoe UI", "Aptos", sans-serif;
+    -fx-text-fill: #17202a;
+}
+.app-root { -fx-background-color: #eef3f7; }
+.sidebar { -fx-background-color: #0f172a; }
+.brand-title { -fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: white; }
+.brand-subtitle { -fx-font-size: 13px; -fx-text-fill: #a7b5c7; }
+.sidebar-note { -fx-text-fill: #a7b5c7; -fx-font-size: 12px; }
+.nav-group { -fx-padding: 28 0 0 0; }
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #dce7f3;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 14;
+    -fx-background-radius: 8;
+}
+.nav-button:hover, .nav-active { -fx-background-color: #1e293b; -fx-text-fill: #86efac; }
+.content-pane { -fx-background-color: #eef3f7; }
+.page { -fx-background-color: #eef3f7; }
+.page-title { -fx-font-size: 30px; -fx-font-weight: 800; -fx-text-fill: #17202a; }
+.page-subtitle { -fx-font-size: 13.5px; -fx-text-fill: #5b6777; }
+.section-title { -fx-font-size: 17px; -fx-font-weight: 700; -fx-text-fill: #17202a; }
+.main-card, .chart-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #d6dee6;
+    -fx-border-radius: 12;
+    -fx-padding: 18;
+}
+.mini-card {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 10;
+    -fx-border-color: #d6dee6;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+}
+.info-strip {
+    -fx-background-color: #ecfeff;
+    -fx-background-radius: 10;
+    -fx-border-color: #bae6fd;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+}
+.traffic-light {
+    -fx-background-color: #94a3b8;
+    -fx-background-radius: 90;
+    -fx-border-color: white;
+    -fx-border-width: 7;
+    -fx-border-radius: 90;
+}
+.traffic-text { -fx-font-size: 24px; -fx-font-weight: 900; -fx-text-fill: white; }
+.state-message { -fx-font-size: 18px; -fx-font-weight: 700; -fx-text-fill: #17202a; }
+.metric-label { -fx-font-size: 11px; -fx-text-fill: #5b6777; }
+.metric-value { -fx-font-size: 28px; -fx-font-weight: 800; -fx-text-fill: #17202a; }
+.metric-value-small { -fx-font-size: 16px; -fx-font-weight: 700; -fx-text-fill: #17202a; }
+.recommendation, .helper-text { -fx-font-size: 13px; -fx-text-fill: #5b6777; }
+.status-label { -fx-font-size: 14px; -fx-font-weight: 700; -fx-text-fill: #1d4ed8; }
+.flow-text { -fx-font-size: 18px; -fx-font-weight: 800; -fx-text-fill: #0f172a; }
+.primary-button {
+    -fx-background-color: #22c55e;
+    -fx-text-fill: #0f172a;
+    -fx-font-weight: 800;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+}
+.secondary-button {
+    -fx-background-color: #e0f2fe;
+    -fx-text-fill: #075985;
+    -fx-font-weight: 700;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+}
+.danger-button {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #b91c1c;
+    -fx-font-weight: 700;
+    -fx-background-radius: 8;
+    -fx-padding: 10 16;
+}
+.progress-bar > .bar { -fx-background-color: #22c55e; }
+.progress-bar > .track { -fx-background-color: #dbe3ea; }
+.chart-plot-background { -fx-background-color: #f8fafc; }
+.table-view { -fx-background-radius: 8; -fx-border-radius: 8; }
+.step-row {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 10;
+    -fx-border-color: #d6dee6;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+.step-number {
+    -fx-background-color: #22c55e;
+    -fx-background-radius: 18;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-alignment: CENTER;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0f172a;
+}
+.warning-card {
+    -fx-background-color: #fff7ed;
+    -fx-background-radius: 10;
+    -fx-border-color: #fed7aa;
+    -fx-border-radius: 10;
+    -fx-padding: 12;
+}

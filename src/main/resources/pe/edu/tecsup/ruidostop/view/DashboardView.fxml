@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="18" styleClass="page" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.tecsup.ruidostop.controller.DashboardController">
+    <padding>
+        <Insets bottom="26" left="28" right="28" top="26" />
+    </padding>
+    <VBox spacing="4">
+        <Label text="Panel en vivo" styleClass="page-title" />
+        <Label text="Visualizacion logica del nivel de ruido enviado por Arduino Nano mediante Bluetooth HC-05." styleClass="page-subtitle" />
+    </VBox>
+    <GridPane hgap="18" vgap="18" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="39" />
+            <ColumnConstraints percentWidth="61" />
+        </columnConstraints>
+        <VBox spacing="16" styleClass="main-card" GridPane.columnIndex="0">
+            <StackPane fx:id="trafficLight" prefHeight="180" prefWidth="180" maxHeight="180" maxWidth="180" styleClass="traffic-light">
+                <Label fx:id="stateLabel" text="SIN DATOS" styleClass="traffic-text" />
+            </StackPane>
+            <Label fx:id="messageLabel" text="Conecte el HC-05 o active simulacion desde Conexion Bluetooth." wrapText="true" styleClass="state-message" />
+            <ProgressBar fx:id="noiseBar" prefWidth="Infinity" progress="0" />
+            <HBox spacing="12">
+                <VBox styleClass="mini-card" HBox.hgrow="ALWAYS">
+                    <Label text="Valor sensor" styleClass="metric-label" />
+                    <Label fx:id="rawValueLabel" text="--" styleClass="metric-value" />
+                </VBox>
+                <VBox styleClass="mini-card" HBox.hgrow="ALWAYS">
+                    <Label text="Intensidad" styleClass="metric-label" />
+                    <Label fx:id="percentLabel" text="--" styleClass="metric-value" />
+                </VBox>
+            </HBox>
+            <VBox spacing="6" styleClass="info-strip">
+                <Label text="Recomendacion" styleClass="metric-label" />
+                <Label fx:id="recommendationLabel" text="Esperando lecturas..." wrapText="true" styleClass="recommendation" />
+            </VBox>
+        </VBox>
+        <VBox spacing="14" GridPane.columnIndex="1">
+            <LineChart fx:id="liveChart" animated="false" createSymbols="false" prefHeight="430" styleClass="chart-card">
+                <xAxis><NumberAxis fx:id="xAxis" /></xAxis>
+                <yAxis><NumberAxis fx:id="yAxis" /></yAxis>
+            </LineChart>
+            <HBox spacing="12">
+                <VBox styleClass="mini-card" HBox.hgrow="ALWAYS">
+                    <Label text="Fuente" styleClass="metric-label" />
+                    <Label fx:id="sourceLabel" text="--" styleClass="metric-value-small" />
+                </VBox>
+                <VBox styleClass="mini-card" HBox.hgrow="ALWAYS">
+                    <Label text="Ultima lectura" styleClass="metric-label" />
+                    <Label fx:id="lastUpdateLabel" text="--" styleClass="metric-value-small" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </GridPane>
+</VBox>

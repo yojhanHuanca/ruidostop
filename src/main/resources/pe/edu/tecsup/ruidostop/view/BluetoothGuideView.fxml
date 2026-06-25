@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16" styleClass="page" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.tecsup.ruidostop.controller.BluetoothGuideController">
+    <padding><Insets bottom="26" left="28" right="28" top="26" /></padding>
+    <VBox spacing="4">
+        <Label text="Guia Bluetooth" styleClass="page-title" />
+        <Label text="Usa esta pantalla para saber que debe pasar antes de conectar el HC-05 en la app." styleClass="page-subtitle" />
+    </VBox>
+
+    <GridPane hgap="16" vgap="16">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+        <VBox spacing="12" styleClass="main-card" GridPane.columnIndex="0">
+            <Label text="Lo que debe pasar" styleClass="section-title" />
+            <VBox spacing="10">
+                <HBox spacing="10" styleClass="step-row"><Label text="1" styleClass="step-number" /><Label wrapText="true" text="Conectas el Arduino Nano a energia o USB. El HC-05 debe encender y parpadear." styleClass="helper-text" /></HBox>
+                <HBox spacing="10" styleClass="step-row"><Label text="2" styleClass="step-number" /><Label wrapText="true" text="Prendes el Bluetooth de la laptop, no del celular." styleClass="helper-text" /></HBox>
+                <HBox spacing="10" styleClass="step-row"><Label text="3" styleClass="step-number" /><Label wrapText="true" text="En Windows agregas el dispositivo HC-05. La clave suele ser 1234 o 0000." styleClass="helper-text" /></HBox>
+                <HBox spacing="10" styleClass="step-row"><Label text="4" styleClass="step-number" /><Label wrapText="true" text="Windows crea uno o dos puertos COM. La app Java lee esos puertos, no el nombre HC-05 directamente." styleClass="helper-text" /></HBox>
+                <HBox spacing="10" styleClass="step-row"><Label text="5" styleClass="step-number" /><Label wrapText="true" text="En Conexion Bluetooth presionas Actualizar puertos, eliges COM y luego Conectar HC-05." styleClass="helper-text" /></HBox>
+            </VBox>
+        </VBox>
+
+        <VBox spacing="12" styleClass="main-card" GridPane.columnIndex="1">
+            <Label text="Diagnostico rapido" styleClass="section-title" />
+            <Button onAction="#refreshDiagnosis" text="Revisar puertos ahora" styleClass="primary-button" />
+            <VBox spacing="8" styleClass="info-strip">
+                <Label text="Resultado" styleClass="metric-label" />
+                <Label fx:id="portSummaryLabel" text="Revisando puertos..." wrapText="true" styleClass="status-label" />
+                <Label fx:id="diagnosticLabel" text="" wrapText="true" styleClass="helper-text" />
+            </VBox>
+            <VBox spacing="8" styleClass="warning-card">
+                <Label text="Si no aparece ningun COM" styleClass="section-title" />
+                <Label wrapText="true" text="Revisa que el HC-05 tenga energia, que Windows lo haya emparejado y que no este conectado desde otra aplicacion como el monitor serial de Arduino." styleClass="helper-text" />
+            </VBox>
+        </VBox>
+    </GridPane>
+</VBox>
